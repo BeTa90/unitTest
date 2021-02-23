@@ -1,0 +1,65 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run unittest-develop",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/unittest-develop/node_modules/@sap/html5-repo-mock/index.js",
+      "cwd": "${workspaceFolder}/unittest-develop",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_flat_run_config_handler_id\",\"runnableId\":\"/home/user/projects/unittest-develop/unittest-develop\"}"
+      },
+      "args": [
+        "--standalone",
+        "/opademo/index.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "envFile": "${workspaceFolder}/unittest-develop/.env1",
+      "preLaunchTask": "Build unittest-develop"
+    },
+    {
+      "name": "Run unittest-develop opa",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/unittest-develop/node_modules/@sap/html5-repo-mock/index.js",
+      "cwd": "${workspaceFolder}/unittest-develop",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_flat_run_config_handler_id\",\"runnableId\":\"/home/user/projects/unittest-develop/unittest-develop\"}"
+      },
+      "args": [
+        "--standalone",
+        "/opademo/test/integration/opaTests.qunit.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "envFile": "${workspaceFolder}/unittest-develop/.env2",
+      "preLaunchTask": "Build unittest-develop"
+    },
+    {
+      "name": "Run unittest-develop unit",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/unittest-develop/node_modules/@sap/html5-repo-mock/index.js",
+      "cwd": "${workspaceFolder}/unittest-develop",
+      "env": {
+        "PORT": "6004",
+        "MOCK_LOOKUP_DIRS": "[\"webapp\"]",
+        "run.config": "{\"handlerId\":\"ui5_flat_run_config_handler_id\",\"runnableId\":\"/home/user/projects/unittest-develop/unittest-develop\"}"
+      },
+      "args": [
+        "--standalone",
+        "/opademo/test/unit/myqunittest.qunit.html",
+        "--ui5",
+        "{\"version\":\".\"}"
+      ],
+      "envFile": "${workspaceFolder}/unittest-develop/.env3",
+      "preLaunchTask": "Build unittest-develop"
+    }
+  ]
+}

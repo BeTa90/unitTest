@@ -1,0 +1,95 @@
+<mvc:View 
+	xmlns:core="sap.ui.core" 
+	xmlns:mvc="sap.ui.core.mvc" 
+	xmlns="sap.m" 
+	controllerName="opademo.controller.Main"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<App>
+		<pages>
+			<Page title="Opa Demo">
+				<content>
+					<VBox>
+						<Button 
+							id="anubhavBtn" 
+							text="click me" 
+							press="onPress">
+						</Button>
+						
+						<Label text="Bitte geben Sie ihren Namen ein:" />
+						<HBox>
+							<Input
+								id="idInput"
+								enabled="true"
+								submit="onShowText"
+								width="15em"
+								placeholder="Input your Name">
+							</Input>
+							<Text id="idText" text=""/>
+						</HBox>
+						
+						<Label text="Bitte geben Sie ihren alter ein:" />
+						<HBox>
+							<Input
+								id="idAgeInput"
+								enabled="true"
+								submit="onShowAge"
+								width="15em"
+								placeholder="Input your age">
+							</Input>
+							<Text id="idAgeText" text=""/>
+						</HBox>
+					</VBox>
+					<HBox height="30px"></HBox>
+					<VBox>
+						<Text text="TASCHERECHNER / CALCULATOR"/>
+						<HBox>
+							<Input id="operandA" width="15em"/>
+							<Label text="Operand A:" />
+						</HBox>
+						<ToolbarSpacer/>
+						<ComboBox
+							id="operator"
+							items="{mathOperations>/operations}"
+							change="onSelectOperator">
+							<core:Item
+								key="{mathOperations>operator}"
+								text="{mathOperations>operator}" />
+						</ComboBox>
+						<ToolbarSpacer/>
+						<HBox>
+							<Input
+							id="operandB"
+							width="15em"/>
+							<Label text="Operand B:" />
+						</HBox>
+						<ToolbarSpacer />
+						<Text
+							text="=" />
+						<Label
+							id="result"
+							text="{result>/}" />
+							
+						<!--
+						<Label
+							id="result"
+							text="Result" />
+						-->
+							
+						<Button
+							icon="sap-icon://simulate"
+							press="onCalc"
+							type="Accept"
+							id="Calc" />
+					</VBox>
+					
+					<Button
+						id="dialogBtnId"
+						icon="sap-icon://world"
+						text="Hello Dialog"
+						press="onOpenDialog"
+						class="sapUiSmallMarginEnd" />
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

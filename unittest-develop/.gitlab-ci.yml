@@ -1,0 +1,53 @@
+stages: 
+  - init
+  - validation
+  - build
+  - test
+  
+before_script:
+  - pwd
+  - whoami
+  - echo "$CI_BUILD_REPO"
+  - echo "$CI_BUILD_NAME"
+  - echo "$CI_PIPELINE_ID"
+  - echo "$CI_PIPELINE_IID"
+  - echo "$CI_COMMIT_REF_SLUG"
+  
+cache:
+  paths:
+      - node_modules/
+      - dist/
+init: 
+  artifacts: 
+    paths: 
+      - node_modules/
+  script: 
+    - npm install
+    - node node_modules/grunt-cli/bin/grunt --verbose clean
+  stage: init
+
+validation: 
+  dependencies: 
+    - init
+  script: 
+    - node node_modules/grunt-cli/bin/grunt -d -v fiori-test
+  stage: validation
+
+test:
+  dependencies: 
+    - init
+  script: 
+    - node node_modules/grunt-cli/bin/grunt -d -v unit-test
+    - echo "Testing"
+  stage: test
+  
+build: 
+  artifacts: 
+    paths: 
+      - dist/
+  dependencies: 
+    - init
+  script: 
+    - node node_modules/grunt-cli/bin/grunt --verbose buildApp
+    - echo "Building"
+  stage: build
