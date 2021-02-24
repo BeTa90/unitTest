@@ -23,7 +23,7 @@ init:
       - node_modules/
   script: 
     - npm install
-    - node node_modules/grunt-cli/bin/grunt --verbose clean
+    - node node_modules/grunt-cli/bin/grunt clean
   stage: init
 
 validation: 
@@ -48,6 +48,6 @@ build:
   dependencies: 
     - init
   script: 
-    - node node_modules/grunt-cli/bin/grunt --verbose buildApp
+    - node node_modules/grunt-cli/bin/grunt buildApp
     - echo "Building"
   stage: build
